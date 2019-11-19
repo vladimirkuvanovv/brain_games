@@ -1,0 +1,11 @@
+{
+    "name": "megagroup/games",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladimir",
+            "email": "vovan986021@gmail.com"
+        }
+    ],
+    "require": {}
+}
