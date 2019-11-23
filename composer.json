@@ -2,13 +2,25 @@
     "name": "brgames/games",
     "license": "MIT",
     "bin" : ["bin/brain-games"],
+    "type": "library",
     "authors": [
         {
             "name": "Vladimir",
             "email": "vovan986021@gmail.com"
         }
     ],
-    "require": {},
+    "description": "brain-games",
+    "autoload": {
+        "psr-4": {
+            "BrainGames\\Cli\\": "src"
+        },
+        "files": [
+            "src/Cli.php"
+        ]
+    },
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.11"
+    },
     "require-dev": {
         "squizlabs/php_codesniffer": "*"
     }
