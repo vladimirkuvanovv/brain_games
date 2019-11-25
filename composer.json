@@ -10,6 +10,9 @@
         }
     ],
     "description": "brain-games",
+    "scripts": {
+        "phpcs": "phpcs"
+    },
     "autoload": {
         "psr-4": {
             "BrainGames\\Cli\\": "src"
