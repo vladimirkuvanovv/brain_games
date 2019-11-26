@@ -1,7 +1,10 @@
 {
     "name": "brgames/games",
     "license": "MIT",
-    "bin" : ["bin/brain-games"],
+    "bin" : [
+        "bin/brain-games",
+        "bin/brain-even"
+    ],
     "type": "library",
     "authors": [
         {
@@ -18,7 +21,8 @@
             "BrainGames\\Cli\\": "src"
         },
         "files": [
-            "src/Cli.php"
+            "src/Cli.php",
+            "src/even.php"
         ]
     },
     "require": {
