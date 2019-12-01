@@ -2,8 +2,8 @@
     "name": "brgames/games",
     "license": "MIT",
     "bin" : [
-        "/vendor/bin/brain-games",
-        "/vendor/bin/brain-even"
+        "bin/brain-games",
+        "bin/brain-even"
     ],
     "type": "library",
     "authors": [
