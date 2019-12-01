@@ -2,8 +2,8 @@
     "name": "brgames/games",
     "license": "MIT",
     "bin" : [
-        "bin/brain-games",
-        "bin/brain-even"
+        "/vendor/bin/brain-games",
+        "/vendor/bin/brain-even"
     ],
     "type": "library",
     "authors": [
@@ -18,7 +18,8 @@
     },
     "autoload": {
         "psr-4": {
-            "BrainGames\\Cli\\": "src"
+            "BrainGames\\Cli\\": "src",
+            "BrainGames\\Even\\": "src"
         },
         "files": [
             "src/Cli.php",
