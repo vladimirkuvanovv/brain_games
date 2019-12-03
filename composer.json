@@ -20,12 +20,11 @@
     "autoload": {
         "psr-4": {
             "BrainGames\\Cli\\": "src",
-            "BrainGames\\Even\\": "src",
             "BrainGames\\Games\\": "src"
         },
         "files": [
             "src/Cli.php",
-            "src/even.php",
+            "src/games/Even.php",
             "src/games/Calc.php"
         ]
     },
