@@ -14,7 +14,6 @@ function getArithmeticPrograssion()
 
     $count_right_answer = 0;
     for ($i = 0; $i < 4; $i++) {
-
         [$number, $progression] = generateProgression();
         line("Question : " . $progression);
         $answer = (int)prompt('Your answer ');
@@ -38,7 +37,7 @@ function getArithmeticPrograssion()
 function generateProgression()
 {
     $arithmetic_progression = [];
-    for ($i = rand(0,1); $i < 30; $i += 2) {
+    for ($i = rand(0, 1); $i < 30; $i += 2) {
          $arithmetic_progression[] = $i;
     }
 
