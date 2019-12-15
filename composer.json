@@ -7,7 +7,8 @@
         "bin/brain-calc",
         "bin/brain-gcd",
         "bin/brain-progression",
-        "bin/brain-prime"
+        "bin/brain-prime",
+        "bin/brain-start-games"
     ],
     "type": "library",
     "authors": [
@@ -22,6 +23,7 @@
     },
     "autoload": {
         "psr-4": {
+            "BrainGames\\": "src",
             "BrainGames\\Cli\\": "src",
             "BrainGames\\Games\\": "src"
         },
@@ -31,7 +33,10 @@
             "src/games/Calc.php",
             "src/games/Gcd.php",
             "src/games/Progression.php",
-            "src/games/Prime.php"
+            "src/games/Prime.php",
+            "src/lib/functions.php",
+            "src/engine.php"
+
         ]
     },
     "require": {

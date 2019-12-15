@@ -5,7 +5,7 @@ namespace BrainGames\Games;
 use function cli\line;
 use function cli\prompt;
 
-function getEvenNumber()
+/*function getEvenNumber()
 {
     line('Welcome to the Brain Game!');
     line('Answer "yes" if the number is even, otherwise answer "no".');
@@ -23,7 +23,7 @@ function getEvenNumber()
 
         if (($number % 2 === 0 && $answer === $answer_yes) || ($number % 2 !== 0 && $answer === $answer_no)) {
             line('Correct!');
-            $count_right_answer = ++$count_right_answer;
+             ++$count_right_answer;
 
             if ($count_right_answer === 3) {
                 line('Congratulations, ' . $name . '!');
@@ -41,4 +41,25 @@ function getEvenNumber()
             break;
         }
     }
+}*/
+
+function getEvenNumberClosure()
+{
+    return [
+        'message' => 'Answer "yes" if the number is even, otherwise answer "no".',
+        'play'    => function () {
+            $number = rand(0, 100);
+            $answer_yes = 'yes';
+            $answer_no = 'no';
+            return [
+              'question' => 'Question:' . $number,
+              'play_game'     => function ($answer) use($number, $answer_yes, $answer_no) {
+                  return ($number % 2 === 0 && $answer === $answer_yes) ||
+                          ($number % 2 !== 0 && $answer === $answer_no);
+              },
+              'rezult_answer' => true,
+            ];
+        },
+
+    ];
 }

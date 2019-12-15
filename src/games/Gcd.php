@@ -5,7 +5,7 @@ namespace BrainGames\Games;
 use function cli\line;
 use function cli\prompt;
 
-function getGreatCommonDivisor()
+/*function getGreatCommonDivisor()
 {
     line('Welcome to the Brain Game!');
     line('Find the greatest common divisor of given numbers.');
@@ -34,7 +34,7 @@ function getGreatCommonDivisor()
             break;
         }
     }
-}
+}*/
 
 function getGCD($first_number, $second_number)
 {
@@ -43,4 +43,23 @@ function getGCD($first_number, $second_number)
     } else {
         return (int)abs($first_number);
     }
+}
+
+function getGcdClosure()
+{
+    return [
+        'message' => 'Find the greatest common divisor of given numbers.',
+        'play'    => function () {
+            $first_number = rand(0, 20);
+            $second_number = rand(0, 20);
+            $rez_number = getGCD($first_number, $second_number);
+            return [
+                'question' => "Question : " . $first_number . ' and ' . $second_number,
+                'play_game'     => function ($answer) use($rez_number) {
+                    return $answer === $rez_number;
+                },
+                'rezult_answer' => $rez_number,
+            ];
+        },
+    ];
 }

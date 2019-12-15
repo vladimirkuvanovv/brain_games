@@ -5,7 +5,7 @@ namespace BrainGames\Games;
 use function cli\line;
 use function cli\prompt;
 
-function getPrimeNumber()
+/*function getPrimeNumber()
 {
     line('Welcome to the Brain Game!');
     line('Answer "yes" if given number is prime. Otherwise answer "no".');
@@ -41,7 +41,7 @@ function getPrimeNumber()
             break;
         }
     }
-}
+}*/
 
 function isPrime($number)
 {
@@ -62,4 +62,25 @@ function isPrime($number)
     }
 
     return true;
+}
+
+function getPrimeNumberClosure()
+{
+    return [
+        'message' => 'Answer "yes" if given number is prime. Otherwise answer "no".',
+        'play'    => function () {
+            $number = rand(0, 50);
+            $answer_yes = 'yes';
+            $answer_no = 'no';
+            $is_prime_number = isPrime($number);
+            return [
+                'question' => 'Question:' . $number,
+                'play_game'     => function ($answer) use($is_prime_number, $answer_yes, $answer_no) {
+                    return ($is_prime_number && $answer === $answer_yes) ||
+                        (!$is_prime_number && $answer === $answer_no);
+                },
+                'rezult_answer' => true,
+            ];
+        },
+    ];
 }

@@ -51,3 +51,20 @@ function generateProgression()
         $arithmetic_progression,
     ];
 }
+
+function getProgressionClosure()
+{
+    return [
+        'message' => 'Answer "yes" if the number is even, otherwise answer "no".',
+        'play'    => function () {
+            [$number, $progression] = generateProgression();
+            return [
+                'question' => 'Question:' . $progression,
+                'play_game'     => function ($answer) use($number) {
+                    return (int)$answer === (int)$number;
+                },
+                'rezult_answer' => $number,
+            ];
+        },
+    ];
+}

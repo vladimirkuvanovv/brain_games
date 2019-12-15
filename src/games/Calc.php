@@ -2,10 +2,10 @@
 
 namespace BrainGames\Games;
 
-use function cli\line;
-use function cli\prompt;
+use function BrainGames\Lib\getGreetingMessage;
+use function BrainGames\Lib\getOutMessage;
 
-function getCalc()
+/*function getCalc()
 {
     line('Welcome to the Brain Game!');
     line('What is the result of the expression?');
@@ -45,4 +45,38 @@ function getCalc()
             break;
         }
     }
+}*/
+
+function getCalcClosure()
+{
+    return [
+        'question' => 'What is the result of the expression?',
+        'play' => function ()
+        {
+            $first_number = rand(0, 20);
+            $second_number = rand(0, 20);
+            $array_operations = ['+', '-', '*'];
+            $rand_key = array_rand($array_operations);
+            $operation = $array_operations[$rand_key];
+
+            if ($operation === '+') {
+                $result = $first_number + $second_number;
+            } elseif ($operation === '-') {
+                $result = $first_number - $second_number;
+            } elseif($operation === '*') {
+                $result = $first_number * $second_number;
+            } else {
+                $result = null;
+            }
+
+
+            return [
+                'question' => "Question : ". "{$first_number} {$operation} {$second_number}",
+                'play_game'     => function($answer) use($result) {
+                    return $answer === $result;
+                },
+                'rez_answer' => $result
+            ];
+        },
+    ];
 }
