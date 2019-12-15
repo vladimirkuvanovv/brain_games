@@ -45,8 +45,11 @@ function getCongratulationMessage($name)
 function choseGame()
 {
     line('What game would you like to play: 
-    1 - Calculation; 2 - Even Number; 3 - Great Common Divisor;
-    4 - Definition prime number; 5 - Definition number of arithmetic progression ?');
+    1 - Calculation; 
+    2 - Even Number; 
+    3 - Great Common Divisor;
+    4 - Definition prime number; 
+    5 - Definition number of arithmetic progression ?');
     $game_number = (int)prompt('Input only number of game');
 
     if (!is_numeric($game_number)) {

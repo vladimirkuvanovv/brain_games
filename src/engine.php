@@ -6,6 +6,7 @@ use function BrainGames\Games\getCalcClosure;
 use function BrainGames\Games\getEvenNumberClosure;
 use function BrainGames\Games\getGcdClosure;
 use function BrainGames\Games\getPrimeNumberClosure;
+use function BrainGames\Games\getProgressionClosure;
 use function BrainGames\Lib\choseGame;
 use function BrainGames\Lib\getCongratulationMessage;
 use function BrainGames\Lib\getCorrectMessage;
@@ -27,13 +28,13 @@ function runEngine()
     } elseif($game_number === 4) {
         [$game_name, $play] = getPrimeNumberClosure();
     } elseif($game_number === 5) {
-        [$game_name, $play] = getEvenNumberClosure();
+        [$game_name, $play] = getProgressionClosure();
     }
 
     $name = getGreetingMessage($game_name);
 
     $count_right_answer = 0;
-    for ($i = 0; $i < 4; $i++) {
+    for ($i = 0; $i < 3; $i++) {
         [$question, $play_game, $rez_answer] = $play();
 
         line($question);
@@ -42,11 +43,11 @@ function runEngine()
         if ($play_game($answer)) {
             getCorrectMessage();
 
+            ++$count_right_answer;
             if ($count_right_answer === 3) {
                 getCongratulationMessage($name);
                 break;
             }
-            ++$count_right_answer;
         } else {
             getOutMessage($name, $answer, $rez_answer);
             break;
