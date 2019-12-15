@@ -21,14 +21,17 @@ function runEngine()
 
     if ($game_number === 1) {
         [$game_name, $play] = getCalcClosure();
-    } elseif($game_number === 2) {
+    } elseif ($game_number === 2) {
         [$game_name, $play] = getEvenNumberClosure();
     } elseif ($game_number === 3) {
         [$game_name, $play] = getGcdClosure();
-    } elseif($game_number === 4) {
+    } elseif ($game_number === 4) {
         [$game_name, $play] = getPrimeNumberClosure();
-    } elseif($game_number === 5) {
+    } elseif ($game_number === 5) {
         [$game_name, $play] = getProgressionClosure();
+    } else {
+         line('Enter correct number, please!');
+         return runEngine();
     }
 
     $name = getGreetingMessage($game_name);
@@ -53,5 +56,4 @@ function runEngine()
             break;
         }
     }
-
 }
