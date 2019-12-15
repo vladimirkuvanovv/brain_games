@@ -17,18 +17,20 @@ function getGreetingMessage($message)
 
 function getOutMessage($name, $answer, $rez_answer)
 {
+    $against_answer = '';
     if (is_bool($rez_answer) && $rez_answer) {
         if ($answer == 'no') {
-            $rez_answer = 'yes';
+            $against_answer = 'yes';
         } elseif ($answer == 'yes') {
-            $rez_answer = 'no';
+            $against_answer = 'no';
         }
     }
 
     if (is_numeric($rez_answer) && !empty($rez_answer)) {
-        $answer_against = $rez_answer;
+        $against_answer = $rez_answer;
     }
-    line($answer . " is wrong answer ;(. Correct answer was " . $rez_answer);
+
+    line($answer . " is wrong answer ;(. Correct answer was " . $against_answer);
     line("Let's try again, " . $name . "!");
 }
 
