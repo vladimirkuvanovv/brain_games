@@ -1,23 +1,18 @@
 {
     "name": "brgames/games",
+    "type": "library",
+    "description": "console games",
+    "keywords":    ["console", "cli", "games"],
     "license": "MIT",
     "bin" : [
-        "bin/brain-games",
-        "bin/brain-even",
-        "bin/brain-calc",
-        "bin/brain-gcd",
-        "bin/brain-progression",
-        "bin/brain-prime",
         "bin/brain-start-games"
     ],
-    "type": "library",
     "authors": [
         {
             "name": "Vladimir",
             "email": "vovan986021@gmail.com"
         }
     ],
-    "description": "brain-games",
     "scripts": {
         "phpcs": "phpcs"
     },
