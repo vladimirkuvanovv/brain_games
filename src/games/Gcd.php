@@ -11,7 +11,7 @@ function getGCD($first_number, $second_number)
     }
 }
 
-function getGcdClosure()
+function getGreatCommonDivisor()
 {
     return [
         'Find the greatest common divisor of given numbers.',

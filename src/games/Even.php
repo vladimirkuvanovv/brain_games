@@ -2,7 +2,7 @@
 
 namespace BrainGames\Games;
 
-function getEvenNumberClosure()
+function getEvenNumber()
 {
     return [
         'Answer "yes" if the number is even, otherwise answer "no".',

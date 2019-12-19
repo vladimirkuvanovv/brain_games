@@ -2,11 +2,11 @@
 
 namespace BrainGames;
 
-use function BrainGames\Games\getCalcClosure;
-use function BrainGames\Games\getEvenNumberClosure;
-use function BrainGames\Games\getGcdClosure;
-use function BrainGames\Games\getPrimeNumberClosure;
-use function BrainGames\Games\getProgressionClosure;
+use function BrainGames\Games\getCalculation;
+use function BrainGames\Games\getEvenNumber;
+use function BrainGames\Games\getGreatCommonDivisor;
+use function BrainGames\Games\getPrimeNumber;
+use function BrainGames\Games\getArithmeticProgression;
 use function BrainGames\Lib\choseGame;
 use function BrainGames\Lib\getCongratulationMessage;
 use function BrainGames\Lib\getCorrectMessage;
@@ -20,15 +20,15 @@ function runEngine()
     $game_number = choseGame();
 
     if ($game_number === 1) {
-        [$game_name, $play] = getCalcClosure();
+        [$game_name, $play] = getCalculation();
     } elseif ($game_number === 2) {
-        [$game_name, $play] = getEvenNumberClosure();
+        [$game_name, $play] = getEvenNumber();
     } elseif ($game_number === 3) {
-        [$game_name, $play] = getGcdClosure();
+        [$game_name, $play] = getGreatCommonDivisor();
     } elseif ($game_number === 4) {
-        [$game_name, $play] = getPrimeNumberClosure();
+        [$game_name, $play] = getPrimeNumber();
     } elseif ($game_number === 5) {
-        [$game_name, $play] = getProgressionClosure();
+        [$game_name, $play] = getArithmeticProgression();
     } else {
          line('Enter correct number, please!');
          return runEngine();

@@ -23,7 +23,7 @@ function isPrime($number)
     return true;
 }
 
-function getPrimeNumberClosure()
+function getPrimeNumber()
 {
     return [
         'Answer "yes" if given number is prime. Otherwise answer "no".',

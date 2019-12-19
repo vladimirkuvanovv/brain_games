@@ -2,7 +2,7 @@
 
 namespace BrainGames\Games;
 
-function getCalcClosure()
+function getCalculation()
 {
     return [
          'What is the result of the expression?',
@@ -22,7 +22,7 @@ function getCalcClosure()
             } else {
                 $result = null;
             }
-            
+
             return [
                 "Question : " . "{$first_number} {$operation} {$second_number}",
                 function ($answer) use ($result) {
