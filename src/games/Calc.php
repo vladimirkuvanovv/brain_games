@@ -23,7 +23,6 @@ function getCalcClosure()
                 $result = null;
             }
 
-
             return [
                 "Question : " . "{$first_number} {$operation} {$second_number}",
                 function ($answer) use ($result) {
