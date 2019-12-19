@@ -1,8 +1,0 @@
-#!/usr/bin/env php
-<?php
-
-use function BrainGames\Games\getGreatCommonDivisor;
-
-require_once __DIR__ . '/../vendor/autoload.php';
-
-getGreatCommonDivisor();
