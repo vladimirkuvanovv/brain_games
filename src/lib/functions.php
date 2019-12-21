@@ -15,22 +15,22 @@ function getGreetingMessage($message)
     return $name;
 }
 
-function getOutMessage($name, $answer, $rez_answer)
+function getOutMessage($name, $answer, $finalAnswer)
 {
-    $against_answer = '';
-    if (is_bool($rez_answer) && $rez_answer) {
+    $againstAnswer = '';
+    if (is_bool($finalAnswer) && $finalAnswer) {
         if ($answer == 'no') {
-            $against_answer = 'yes';
+            $againstAnswer = 'yes';
         } elseif ($answer == 'yes') {
-            $against_answer = 'no';
+            $againstAnswer = 'no';
         }
     }
 
-    if (is_numeric($rez_answer) && !empty($rez_answer)) {
-        $against_answer = $rez_answer;
+    if (is_numeric($finalAnswer) && !empty($finalAnswer)) {
+        $againstAnswer = $finalAnswer;
     }
 
-    line($answer . " is wrong answer ;(. Correct answer was " . $against_answer);
+    line($answer . " is wrong answer ;(. Correct answer was " . $againstAnswer);
     line("Let's try again, " . $name . "!");
 }
 
@@ -52,10 +52,10 @@ function choseGame()
     3 - Great Common Divisor;
     4 - Definition prime number; 
     5 - Definition number of arithmetic progression ?');
-    $game_number = (int)prompt('Input only number of game');
+    $gameNumber = (int)prompt('Input only number of game');
 
-    if (!is_numeric($game_number)) {
+    if (!is_numeric($gameNumber)) {
         return false;
     }
-    return $game_number;
+    return $gameNumber;
 }
