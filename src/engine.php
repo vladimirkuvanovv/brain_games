@@ -17,42 +17,42 @@ use function cli\prompt;
 
 function runEngine()
 {
-    $game_number = choseGame();
+    $gameNumber = choseGame();
 
-    if ($game_number === 1) {
-        [$game_name, $play] = getCalculation();
-    } elseif ($game_number === 2) {
-        [$game_name, $play] = getEvenNumber();
-    } elseif ($game_number === 3) {
-        [$game_name, $play] = getGreatCommonDivisor();
-    } elseif ($game_number === 4) {
-        [$game_name, $play] = getPrimeNumber();
-    } elseif ($game_number === 5) {
-        [$game_name, $play] = getArithmeticProgression();
+    if ($gameNumber === 1) {
+        [$gameName, $play] = getCalculation();
+    } elseif ($gameNumber === 2) {
+        [$gameName, $play] = getEvenNumber();
+    } elseif ($gameNumber === 3) {
+        [$gameName, $play] = getGreatCommonDivisor();
+    } elseif ($gameNumber === 4) {
+        [$gameName, $play] = getPrimeNumber();
+    } elseif ($gameNumber === 5) {
+        [$gameName, $play] = getArithmeticProgression();
     } else {
          line('Enter correct number, please!');
          return runEngine();
     }
 
-    $name = getGreetingMessage($game_name);
+    $name = getGreetingMessage($gameName);
 
-    $count_right_answer = 0;
+    $countRightAnswer = 0;
     for ($i = 0; $i < 3; $i++) {
-        [$question, $play_game, $rez_answer] = $play();
+        [$question, $playGame, $finalAnswer] = $play();
 
         line($question);
         $answer = prompt('Your answer ');
         
-        if ($play_game($answer)) {
+        if ($playGame($answer)) {
             getCorrectMessage();
 
-            ++$count_right_answer;
-            if ($count_right_answer === 3) {
+            ++$countRightAnswer;
+            if ($countRightAnswer === 3) {
                 getCongratulationMessage($name);
                 break;
             }
         } else {
-            getOutMessage($name, $answer, $rez_answer);
+            getOutMessage($name, $answer, $finalAnswer);
             break;
         }
     }
