@@ -4,19 +4,19 @@ namespace BrainGames\Games;
 
 function generateProgression()
 {
-    $arithmetic_progression = [];
+    $arithmeticProgression = [];
     for ($i = rand(0, 1); $i < 30; $i += 2) {
-         $arithmetic_progression[] = $i;
+         $arithmeticProgression[] = $i;
     }
 
-    $random_key = array_rand($arithmetic_progression);
-    $number = $arithmetic_progression[$random_key];
-    $arithmetic_progression[$random_key] = '..';
-    $arithmetic_progression = implode(' ', $arithmetic_progression);
+    $randomKey = array_rand($arithmeticProgression);
+    $number = $arithmeticProgression[$randomKey];
+    $arithmeticProgression[$randomKey] = '..';
+    $arithmeticProgression = implode(' ', $arithmeticProgression);
 
     return [
         $number,
-        $arithmetic_progression,
+        $arithmeticProgression,
     ];
 }
 

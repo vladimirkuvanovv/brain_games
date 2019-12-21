@@ -11,8 +11,8 @@ function isPrime($number)
         return false;
     }
     $i = 3;
-    $max_count = (int)sqrt($number);
-    while ($i <= $max_count) {
+    $maxCount = (int)sqrt($number);
+    while ($i <= $maxCount) {
         if ($number % $i == 0) {
             return false;
         }
@@ -29,14 +29,14 @@ function getPrimeNumber()
         'Answer "yes" if given number is prime. Otherwise answer "no".',
         function () {
             $number = rand(0, 50);
-            $answer_yes = 'yes';
-            $answer_no = 'no';
-            $is_prime_number = isPrime($number);
+            $successAnswer = 'yes';
+            $failedAnswer = 'no';
+            $isPrimeNumber = isPrime($number);
             return [
                 'Question:' . $number,
-                function ($answer) use ($is_prime_number, $answer_yes, $answer_no) {
-                    return ($is_prime_number && $answer === $answer_yes) ||
-                        (!$is_prime_number && $answer === $answer_no);
+                function ($answer) use ($isPrimeNumber, $successAnswer, $failedAnswer) {
+                    return ($isPrimeNumber && $answer === $successAnswer) ||
+                        (!$isPrimeNumber && $answer === $failedAnswer);
                 },
                 true,
             ];

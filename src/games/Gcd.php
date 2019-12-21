@@ -2,12 +2,12 @@
 
 namespace BrainGames\Games;
 
-function getGCD($first_number, $second_number)
+function getGCD($firstNumber, $secondNumber)
 {
-    if ($second_number > 0) {
-        return getGCD($second_number, $first_number % $second_number);
+    if ($secondNumber > 0) {
+        return getGCD($secondNumber, $firstNumber % $secondNumber);
     } else {
-        return (int)abs($first_number);
+        return (int)abs($firstNumber);
     }
 }
 
@@ -16,15 +16,15 @@ function getGreatCommonDivisor()
     return [
         'Find the greatest common divisor of given numbers.',
         function () {
-            $first_number = rand(0, 20);
-            $second_number = rand(0, 20);
-            $rez_number = getGCD($first_number, $second_number);
+            $firstNumber = rand(0, 20);
+            $secondNumber = rand(0, 20);
+            $resultNumber = getGCD($firstNumber, $secondNumber);
             return [
-                "Question : " . $first_number . ' and ' . $second_number,
-                function ($answer) use ($rez_number) {
-                    return (int)$answer === (int)$rez_number;
+                "Question : " . $firstNumber . ' and ' . $secondNumber,
+                function ($answer) use ($resultNumber) {
+                    return (int)$answer === (int)$resultNumber;
                 },
-                $rez_number,
+                $resultNumber,
             ];
         },
     ];
