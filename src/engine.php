@@ -9,7 +9,6 @@ use function BrainGames\Games\getPrimeNumber;
 use function BrainGames\Games\getArithmeticProgression;
 use function BrainGames\Lib\choseGame;
 use function BrainGames\Lib\getCongratulationMessage;
-use function BrainGames\Lib\getCorrectMessage;
 use function BrainGames\Lib\getGreetingMessage;
 use function BrainGames\Lib\getOutMessage;
 use function cli\line;
@@ -44,7 +43,7 @@ function runEngine()
         $answer = prompt('Your answer ');
         
         if ($playGame($answer)) {
-            getCorrectMessage();
+            line('Correct!');
 
             ++$countRightAnswer;
             if ($countRightAnswer === 3) {

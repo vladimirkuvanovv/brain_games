@@ -34,11 +34,6 @@ function getOutMessage($name, $answer, $finalAnswer)
     line("Let's try again, " . $name . "!");
 }
 
-function getCorrectMessage()
-{
-    line('Correct!');
-}
-
 function getCongratulationMessage($name)
 {
     line('Congratulations, ' . $name . '!');
