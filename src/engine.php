@@ -14,35 +14,16 @@ use function BrainGames\Lib\getOutMessage;
 use function cli\line;
 use function cli\prompt;
 
-function runEngine()
+function runEngine($gameName, $question, $correctAnswer)
 {
-    $gameNumber = choseGame();
-
-    if ($gameNumber === 1) {
-        [$gameName, $play] = getCalculation();
-    } elseif ($gameNumber === 2) {
-        [$gameName, $play] = getEvenNumber();
-    } elseif ($gameNumber === 3) {
-        [$gameName, $play] = getGreatCommonDivisor();
-    } elseif ($gameNumber === 4) {
-        [$gameName, $play] = getPrimeNumber();
-    } elseif ($gameNumber === 5) {
-        [$gameName, $play] = getArithmeticProgression();
-    } else {
-         line('Enter correct number, please!');
-         return runEngine();
-    }
-
     $name = getGreetingMessage($gameName);
 
     $countRightAnswer = 0;
     for ($i = 0; $i < 3; $i++) {
-        [$question, $playGame, $finalAnswer] = $play();
-
         line($question);
         $answer = prompt('Your answer ');
         
-        if ($playGame($answer)) {
+        if ($answer === $correctAnswer) {
             line('Correct!');
 
             ++$countRightAnswer;
@@ -51,7 +32,7 @@ function runEngine()
                 break;
             }
         } else {
-            getOutMessage($name, $answer, $finalAnswer);
+            getOutMessage($name, $answer, $correctAnswer);
             break;
         }
     }

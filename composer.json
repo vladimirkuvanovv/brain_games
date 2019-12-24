@@ -5,7 +5,12 @@
     "keywords":    ["console", "cli", "games"],
     "license": "MIT",
     "bin" : [
-        "bin/brain-start-games"
+        "bin/brain-start-games",
+        "bin/brain-calc",
+        "bin/brain-even",
+        "bin/brain-gcd",
+        "bin/brain-prime",
+        "bin/brain-progression"
     ],
     "authors": [
         {
