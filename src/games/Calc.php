@@ -5,15 +5,15 @@ namespace BrainGames\Games;
 function getCalculation()
 {
     return [
-         'What is the result of the expression?',
-         function ()
+        'mainQuestion' => 'What is the result of the expression?',
+         'play' => function ()
         {
             $firstNumber = (int)rand(0, 20);
             $secondNumber = (int)rand(0, 20);
             $arrayOperations = ['+', '-', '*'];
             $randKey = array_rand($arrayOperations);
             $operation = $arrayOperations[$randKey];
-
+//switch case
             if ($operation === '+') {
                 $result = $firstNumber + $secondNumber;
             } elseif ($operation === '-') {

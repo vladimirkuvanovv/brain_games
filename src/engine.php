@@ -9,9 +9,9 @@ use function BrainGames\Games\getCalculation;
 use function cli\line;
 use function cli\prompt;
 
-function runEngine($gamePlay)
+function runEngine($mainQuestion, $play)
 {
-    [$mainQuestion, $play] = $gamePlay();
+//    [$mainQuestion, $play] = $gamePlay();
     $name = getGreetingMessage($mainQuestion);
 
     $countRightAnswer = 0;
