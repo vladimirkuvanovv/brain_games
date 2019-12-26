@@ -2,7 +2,9 @@
 <?php
 
 use function BrainGames\Games\getGreatCommonDivisor;
+use function BrainGames\runEngine;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-getGreatCommonDivisor();
+['mainQuestion' => $mainQuestion, 'play' => $play] = getGreatCommonDivisor();
+runEngine($mainQuestion, $play);

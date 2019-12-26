@@ -2,7 +2,9 @@
 <?php
 
 use function BrainGames\Games\getEvenNumber;
+use function BrainGames\runEngine;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-getEvenNumber();
+['mainQuestion' => $mainQuestion, 'play' => $play] = getEvenNumber();
+runEngine($mainQuestion, $play);

@@ -13,20 +13,25 @@ function getCalculation()
             $arrayOperations = ['+', '-', '*'];
             $randKey = array_rand($arrayOperations);
             $operation = $arrayOperations[$randKey];
-//switch case
-            if ($operation === '+') {
-                $result = $firstNumber + $secondNumber;
-            } elseif ($operation === '-') {
-                $result = $firstNumber - $secondNumber;
-            } elseif ($operation === '*') {
-                $result = $firstNumber * $secondNumber;
-            } else {
-                $result = null;
+
+            switch ($operation) {
+                case '+' :
+                    $result = $firstNumber + $secondNumber;
+                    break;
+                case '-' :
+                    $result = $firstNumber - $secondNumber;
+                    break;
+                case '*' :
+                    $result = $firstNumber * $secondNumber;
+                    break;
+                default :
+                    $result = null;
+                    break;
             }
 
             return [
-                $result,
-                "Question : " . "{$firstNumber} {$operation} {$secondNumber}"
+                'resultAnswer' => $result,
+                'questionInGame' => "Question : " . "{$firstNumber} {$operation} {$secondNumber}"
             ];
         }
     ];

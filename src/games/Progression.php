@@ -23,15 +23,12 @@ function generateProgression()
 function getArithmeticProgression()
 {
     return [
-        'Answer "yes" if the number is even, otherwise answer "no".',
-        function () {
+        'mainQuestion' => 'Answer "yes" if the number is even, otherwise answer "no".',
+        'play' => function () {
             [$number, $progression] = generateProgression();
             return [
-                'Question:' . $progression,
-                function ($answer) use ($number) {
-                    return (int)$answer === (int)$number;
-                },
-                $number,
+                'resultAnswer' => $number,
+                'questionInGame' => 'Question:' . $progression
             ];
         },
     ];

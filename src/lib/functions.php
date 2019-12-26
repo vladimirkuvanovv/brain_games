@@ -17,40 +17,11 @@ function getGreetingMessage($message)
 
 function getOutMessage($name, $answer, $finalAnswer)
 {
-    $againstAnswer = '';
-    if (is_bool($finalAnswer) && $finalAnswer) {
-        if ($answer == 'no') {
-            $againstAnswer = 'yes';
-        } elseif ($answer == 'yes') {
-            $againstAnswer = 'no';
-        }
-    }
-
-    if (is_numeric($finalAnswer) && !empty($finalAnswer)) {
-        $againstAnswer = $finalAnswer;
-    }
-
-    line($answer . " is wrong answer ;(. Correct answer was " . $againstAnswer);
+    line($answer . " is wrong answer ;(. Correct answer was " . $finalAnswer);
     line("Let's try again, " . $name . "!");
 }
 
 function getCongratulationMessage($name)
 {
     line('Congratulations, ' . $name . '!');
-}
-
-function choseGame()
-{
-    line('What game would you like to play: 
-    1 - Calculation; 
-    2 - Even Number; 
-    3 - Great Common Divisor;
-    4 - Definition prime number; 
-    5 - Definition number of arithmetic progression ?');
-    $gameNumber = (int)prompt('Input only number of game');
-
-    if (!is_numeric($gameNumber)) {
-        return false;
-    }
-    return $gameNumber;
 }

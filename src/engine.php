@@ -5,22 +5,20 @@ namespace BrainGames;
 use function BrainGames\Lib\getCongratulationMessage;
 use function BrainGames\Lib\getGreetingMessage;
 use function BrainGames\Lib\getOutMessage;
-use function BrainGames\Games\getCalculation;
 use function cli\line;
 use function cli\prompt;
 
 function runEngine($mainQuestion, $play)
 {
-//    [$mainQuestion, $play] = $gamePlay();
     $name = getGreetingMessage($mainQuestion);
 
     $countRightAnswer = 0;
     for ($i = 0; $i < 3; $i++) {
-        [$result, $question] = $play();
-        line($question);
-        $answer = (int)prompt('Your answer ');
+        ['resultAnswer' => $resultAnswer, 'questionInGame' => $questionInGame] = $play();
+        line($questionInGame);
+        $answer = prompt('Your answer ');
         
-        if ($answer === $result) {
+        if ($answer == $resultAnswer) {
             line('Correct!');
 
             ++$countRightAnswer;
@@ -29,7 +27,7 @@ function runEngine($mainQuestion, $play)
                 break;
             }
         } else {
-            getOutMessage($name, $answer, $result);
+            getOutMessage($name, $answer, $resultAnswer);
             break;
         }
     }

@@ -14,17 +14,14 @@ function getGCD($firstNumber, $secondNumber)
 function getGreatCommonDivisor()
 {
     return [
-        'Find the greatest common divisor of given numbers.',
-        function () {
+        'mainQuestion' => 'Find the greatest common divisor of given numbers.',
+        'play' => function () {
             $firstNumber = rand(0, 20);
             $secondNumber = rand(0, 20);
             $resultNumber = getGCD($firstNumber, $secondNumber);
             return [
-                "Question : " . $firstNumber . ' and ' . $secondNumber,
-                function ($answer) use ($resultNumber) {
-                    return (int)$answer === (int)$resultNumber;
-                },
-                $resultNumber,
+                'resultAnswer' => $resultNumber,
+                'questionInGame' => "Question : " . $firstNumber . ' and ' . $secondNumber,
             ];
         },
     ];

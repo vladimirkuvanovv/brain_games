@@ -2,7 +2,10 @@
 <?php
 
 use function BrainGames\Games\getPrimeNumber;
+use function BrainGames\runEngine;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-getPrimeNumber();
+['mainQuestion' => $mainQuestion, 'play' => $play] = getPrimeNumber();
+runEngine($mainQuestion, $play);
+

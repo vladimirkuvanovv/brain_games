@@ -26,19 +26,19 @@ function isPrime($number)
 function getPrimeNumber()
 {
     return [
-        'Answer "yes" if given number is prime. Otherwise answer "no".',
-        function () {
+        'mainQuestion' => 'Answer "yes" if given number is prime. Otherwise answer "no".',
+        'play' => function () {
             $number = rand(0, 50);
-            $successAnswer = 'yes';
-            $failedAnswer = 'no';
             $isPrimeNumber = isPrime($number);
+
+            if ($isPrimeNumber) {
+                $answer = 'yes';
+            } else {
+                $answer = 'no';
+            }
             return [
-                'Question:' . $number,
-                function ($answer) use ($isPrimeNumber, $successAnswer, $failedAnswer) {
-                    return ($isPrimeNumber && $answer === $successAnswer) ||
-                        (!$isPrimeNumber && $answer === $failedAnswer);
-                },
-                true,
+                'resultAnswer' => $answer,
+                'questionInGame' => 'Question:' . $number,
             ];
         },
     ];
