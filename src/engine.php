@@ -2,28 +2,25 @@
 
 namespace BrainGames;
 
-use function BrainGames\Games\getCalculation;
-use function BrainGames\Games\getEvenNumber;
-use function BrainGames\Games\getGreatCommonDivisor;
-use function BrainGames\Games\getPrimeNumber;
-use function BrainGames\Games\getArithmeticProgression;
-use function BrainGames\Lib\choseGame;
 use function BrainGames\Lib\getCongratulationMessage;
 use function BrainGames\Lib\getGreetingMessage;
 use function BrainGames\Lib\getOutMessage;
+use function BrainGames\Games\getCalculation;
 use function cli\line;
 use function cli\prompt;
 
-function runEngine($gameName, $question, $correctAnswer)
+function runEngine($gamePlay)
 {
-    $name = getGreetingMessage($gameName);
+    [$mainQuestion, $play] = $gamePlay();
+    $name = getGreetingMessage($mainQuestion);
 
     $countRightAnswer = 0;
     for ($i = 0; $i < 3; $i++) {
+        [$result, $question] = $play();
         line($question);
-        $answer = prompt('Your answer ');
+        $answer = (int)prompt('Your answer ');
         
-        if ($answer === $correctAnswer) {
+        if ($answer === $result) {
             line('Correct!');
 
             ++$countRightAnswer;
@@ -32,7 +29,7 @@ function runEngine($gameName, $question, $correctAnswer)
                 break;
             }
         } else {
-            getOutMessage($name, $answer, $correctAnswer);
+            getOutMessage($name, $answer, $result);
             break;
         }
     }

@@ -2,7 +2,8 @@
 <?php
 
 use function BrainGames\Games\getCalculation;
+use function BrainGames\runEngine;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-getCalculation();
+runEngine('getCalculation');

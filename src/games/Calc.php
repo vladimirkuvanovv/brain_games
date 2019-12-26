@@ -2,29 +2,32 @@
 
 namespace BrainGames\Games;
 
-use function BrainGames\runEngine;
-
 function getCalculation()
 {
-    $gameName = 'What is the result of the expression?';
+    return [
+         'What is the result of the expression?',
+         function ()
+        {
+            $firstNumber = (int)rand(0, 20);
+            $secondNumber = (int)rand(0, 20);
+            $arrayOperations = ['+', '-', '*'];
+            $randKey = array_rand($arrayOperations);
+            $operation = $arrayOperations[$randKey];
 
-    $firstNumber = rand(0, 20);
-    $secondNumber = rand(0, 20);
-    $arrayOperations = ['+', '-', '*'];
-    $randKey = array_rand($arrayOperations);
-    $operation = $arrayOperations[$randKey];
+            if ($operation === '+') {
+                $result = $firstNumber + $secondNumber;
+            } elseif ($operation === '-') {
+                $result = $firstNumber - $secondNumber;
+            } elseif ($operation === '*') {
+                $result = $firstNumber * $secondNumber;
+            } else {
+                $result = null;
+            }
 
-    if ($operation === '+') {
-        $result = $firstNumber + $secondNumber;
-    } elseif ($operation === '-') {
-        $result = $firstNumber - $secondNumber;
-    } elseif ($operation === '*') {
-        $result = $firstNumber * $secondNumber;
-    } else {
-        $result = null;
-    }
-
-    $question = "Question : " . "{$firstNumber} {$operation} {$secondNumber}";
-
-    runEngine($gameName, $question, $result);
+            return [
+                $result,
+                "Question : " . "{$firstNumber} {$operation} {$secondNumber}"
+            ];
+        }
+    ];
 }
