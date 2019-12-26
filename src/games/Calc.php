@@ -6,8 +6,7 @@ function getCalculation()
 {
     return [
         'mainQuestion' => 'What is the result of the expression?',
-         'play' => function ()
-        {
+         'play' => function () {
             $firstNumber = (int)rand(0, 20);
             $secondNumber = (int)rand(0, 20);
             $arrayOperations = ['+', '-', '*'];
@@ -15,16 +14,16 @@ function getCalculation()
             $operation = $arrayOperations[$randKey];
 
             switch ($operation) {
-                case '+' :
+                case '+':
                     $result = $firstNumber + $secondNumber;
                     break;
-                case '-' :
+                case '-':
                     $result = $firstNumber - $secondNumber;
                     break;
-                case '*' :
+                case '*':
                     $result = $firstNumber * $secondNumber;
                     break;
-                default :
+                default:
                     $result = null;
                     break;
             }
@@ -33,6 +32,6 @@ function getCalculation()
                 'resultAnswer' => $result,
                 'questionInGame' => "Question : " . "{$firstNumber} {$operation} {$secondNumber}"
             ];
-        }
+         }
     ];
 }
