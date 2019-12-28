@@ -2,6 +2,8 @@
 
 namespace BrainGames\Games;
 
+use function cli\prompt;
+
 function isPrime($number)
 {
     if ($number == 2) {
@@ -37,8 +39,11 @@ function getPrimeNumber()
                 $answer = 'no';
             }
             return [
-                'resultAnswer' => $answer,
+                'resultAnswer' => (string)$answer,
                 'questionInGame' => 'Question:' . $number,
+                'userAnswer'     => function () {
+                    return (string)prompt('Your answer ');
+                }
             ];
         },
     ];

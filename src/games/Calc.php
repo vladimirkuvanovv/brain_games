@@ -2,6 +2,8 @@
 
 namespace BrainGames\Games;
 
+use function cli\prompt;
+
 function getCalculation()
 {
     return [
@@ -29,8 +31,11 @@ function getCalculation()
             }
 
             return [
-                'resultAnswer' => $result,
-                'questionInGame' => "Question : " . "{$firstNumber} {$operation} {$secondNumber}"
+                'resultAnswer'   => (int)$result,
+                'questionInGame' => "Question : " . "{$firstNumber} {$operation} {$secondNumber}",
+                'userAnswer'     => function () {
+                    return (int)prompt('Your answer ');
+                }
             ];
          }
     ];

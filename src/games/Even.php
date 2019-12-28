@@ -2,6 +2,8 @@
 
 namespace BrainGames\Games;
 
+use function cli\prompt;
+
 function getEvenNumber()
 {
     return [
@@ -15,8 +17,11 @@ function getEvenNumber()
             }
 
             return [
-                'resultAnswer' => $answer,
-                'questionInGame' => 'Question:' . $number
+                'resultAnswer' => (string)$answer,
+                'questionInGame' => 'Question:' . $number,
+                'userAnswer'     => function () {
+                    return (string)prompt('Your answer ');
+                }
             ];
         },
     ];

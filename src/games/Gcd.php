@@ -2,6 +2,8 @@
 
 namespace BrainGames\Games;
 
+use function cli\prompt;
+
 function getGCD($firstNumber, $secondNumber)
 {
     if ($secondNumber > 0) {
@@ -20,8 +22,11 @@ function getGreatCommonDivisor()
             $secondNumber = rand(0, 20);
             $resultNumber = getGCD($firstNumber, $secondNumber);
             return [
-                'resultAnswer' => $resultNumber,
+                'resultAnswer' => (int)$resultNumber,
                 'questionInGame' => "Question : " . $firstNumber . ' and ' . $secondNumber,
+                'userAnswer'     => function () {
+                    return (int)prompt('Your answer ');
+                }
             ];
         },
     ];

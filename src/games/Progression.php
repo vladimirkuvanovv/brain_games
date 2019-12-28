@@ -2,6 +2,8 @@
 
 namespace BrainGames\Games;
 
+use function cli\prompt;
+
 function generateProgression()
 {
     $arithmeticProgression = [];
@@ -27,8 +29,11 @@ function getArithmeticProgression()
         'play' => function () {
             [$number, $progression] = generateProgression();
             return [
-                'resultAnswer' => $number,
-                'questionInGame' => 'Question:' . $progression
+                'resultAnswer' => (int)$number,
+                'questionInGame' => 'Question:' . $progression,
+                'userAnswer'     => function () {
+                    return (int)prompt('Your answer ');
+                }
             ];
         },
     ];

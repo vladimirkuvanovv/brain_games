@@ -6,7 +6,6 @@ use function BrainGames\Lib\getCongratulationMessage;
 use function BrainGames\Lib\getGreetingMessage;
 use function BrainGames\Lib\getOutMessage;
 use function cli\line;
-use function cli\prompt;
 
 function runEngine($mainQuestion, $play)
 {
@@ -14,11 +13,11 @@ function runEngine($mainQuestion, $play)
 
     $countRightAnswer = 0;
     for ($i = 0; $i < 3; $i++) {
-        ['resultAnswer' => $resultAnswer, 'questionInGame' => $questionInGame] = $play();
+        ['resultAnswer' => $resultAnswer, 'questionInGame' => $questionInGame, 'userAnswer' => $userAnswer] = $play();
         line($questionInGame);
-        $answer = prompt('Your answer ');
+        $answer = $userAnswer();
         
-        if ($answer == $resultAnswer) {
+        if ($answer === $resultAnswer) {
             line('Correct!');
 
             ++$countRightAnswer;
