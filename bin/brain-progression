@@ -1,10 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use function BrainGames\Games\getArithmeticProgression;
-use function BrainGames\runEngine;
+use function BrainGames\Games\runProgressionGame;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-['mainQuestion' => $mainQuestion, 'play' => $play] = getArithmeticProgression();
-runEngine($mainQuestion, $play);
+runProgressionGame();

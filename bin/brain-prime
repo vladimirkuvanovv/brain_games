@@ -1,11 +1,9 @@
 #!/usr/bin/env php
 <?php
 
-use function BrainGames\Games\getPrimeNumber;
-use function BrainGames\runEngine;
+use function BrainGames\Games\runPrimeGame;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-['mainQuestion' => $mainQuestion, 'play' => $play] = getPrimeNumber();
-runEngine($mainQuestion, $play);
+runPrimeGame();
 

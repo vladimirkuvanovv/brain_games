@@ -1,10 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use function BrainGames\Games\getEvenNumber;
-use function BrainGames\runEngine;
+use function BrainGames\Games\runEvenGame;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-['mainQuestion' => $mainQuestion, 'play' => $play] = getEvenNumber();
-runEngine($mainQuestion, $play);
+runEvenGame();

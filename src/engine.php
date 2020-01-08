@@ -3,14 +3,16 @@
 namespace BrainGames;
 
 use function BrainGames\Lib\getCongratulationMessage;
-use function BrainGames\Lib\getGreetingMessage;
 use function BrainGames\Lib\getOutMessage;
 use function cli\line;
 use function cli\prompt;
 
 function runEngine($mainQuestion, $play)
 {
-    $name = getGreetingMessage($mainQuestion);
+    line('Welcome to the Brain Game!');
+    line($mainQuestion);
+    $name = prompt('May I have your name?');
+    line('Hello, %s!', $name);
 
     $countRightAnswer = 0;
     for ($i = 0; $i < 3; $i++) {

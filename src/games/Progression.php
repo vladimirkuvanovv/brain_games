@@ -2,10 +2,15 @@
 
 namespace BrainGames\Games;
 
+use function BrainGames\runEngine;
+
+const MAIN_QUESTION_FOR_PROGRESSION = 'Answer "yes" if the number is even, otherwise answer "no".';
+
 function generateProgression()
 {
     $arithmeticProgression = [];
-    for ($i = rand(0, 1); $i < 30; $i += 2) {
+    $random_top_number = 30;
+    for ($i = rand(0, 1); $i < $random_top_number; $i += 2) {
          $arithmeticProgression[] = $i;
     }
 
@@ -23,7 +28,7 @@ function generateProgression()
 function getArithmeticProgression()
 {
     return [
-        'mainQuestion' => 'Answer "yes" if the number is even, otherwise answer "no".',
+        'mainQuestion' => MAIN_QUESTION_FOR_PROGRESSION,
         'play' => function () {
             [$number, $progression] = generateProgression();
             return [
@@ -32,4 +37,10 @@ function getArithmeticProgression()
             ];
         },
     ];
+}
+
+function runProgressionGame()
+{
+    ['mainQuestion' => $mainQuestion, 'play' => $play] = getArithmeticProgression();
+    runEngine($mainQuestion, $play);
 }

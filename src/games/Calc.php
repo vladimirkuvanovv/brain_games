@@ -2,10 +2,14 @@
 
 namespace BrainGames\Games;
 
+use function BrainGames\runEngine;
+
+const MAIN_QUESTION_FOR_CALC = 'What is the result of the expression?';
+
 function getCalculation()
 {
     return [
-        'mainQuestion' => 'What is the result of the expression?',
+        'mainQuestion' => MAIN_QUESTION_FOR_CALC,
          'play' => function () {
             $firstNumber = (int)rand(0, 20);
             $secondNumber = (int)rand(0, 20);
@@ -34,4 +38,10 @@ function getCalculation()
             ];
          }
     ];
+}
+
+function runCalculationGame()
+{
+    ['mainQuestion' => $mainQuestion, 'play' => $play] = getCalculation();
+    runEngine($mainQuestion, $play);
 }

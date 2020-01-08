@@ -1,10 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use function BrainGames\Games\getCalculation;
-use function BrainGames\runEngine;
+use function BrainGames\Games\runCalculationGame;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-['mainQuestion' => $mainQuestion, 'play' => $play] = getCalculation();
-runEngine($mainQuestion, $play);
+runCalculationGame();
