@@ -5,6 +5,7 @@ namespace BrainGames;
 use function BrainGames\Lib\getCongratulationMessage;
 use function BrainGames\Lib\getOutMessage;
 use function cli\line;
+use function cli\prompt;
 
 function runEngine($mainQuestion, $play)
 {
