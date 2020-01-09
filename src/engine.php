@@ -16,11 +16,11 @@ function runEngine($mainQuestion, $play)
 
     $countRightAnswer = 0;
     for ($i = 0; $i < 3; $i++) {
-        ['resultAnswer' => $resultAnswer, 'questionInGame' => $questionInGame, 'userAnswer' => $userAnswer] = $play();
+        ['resultAnswer' => $resultAnswer, 'questionInGame' => $questionInGame] = $play();
         line($questionInGame);
-        $answer = $userAnswer();
+        $answer = prompt('Your answer');
         
-        if ($answer === $resultAnswer) {
+        if ($answer == $resultAnswer) {
             line('Correct!');
 
             ++$countRightAnswer;
