@@ -7,6 +7,8 @@ use function BrainGames\Lib\getOutMessage;
 use function cli\line;
 use function cli\prompt;
 
+const COUNT_ITERATIONS = 3;
+
 function runEngine($mainQuestion, $play)
 {
     line('Welcome to the Brain Game!');
@@ -15,9 +17,9 @@ function runEngine($mainQuestion, $play)
     line('Hello, %s!', $name);
 
     $countRightAnswer = 0;
-    for ($i = 0; $i < 3; $i++) {
+    for ($i = 0; $i < COUNT_ITERATIONS; $i++) {
         ['resultAnswer' => $resultAnswer, 'questionInGame' => $questionInGame] = $play();
-        line($questionInGame);
+        line('Question '. $questionInGame);
         $answer = prompt('Your answer');
         
         if ($answer == $resultAnswer) {
@@ -25,11 +27,12 @@ function runEngine($mainQuestion, $play)
 
             ++$countRightAnswer;
             if ($countRightAnswer === 3) {
-                getCongratulationMessage($name);
+                line('Congratulations, ' . $name . '!');
                 break;
             }
         } else {
-            getOutMessage($name, $answer, $resultAnswer);
+            line($answer . " is wrong answer ;(. Correct answer was " . $resultAnswer);
+            line("Let's try again, " . $name . "!");
             break;
         }
     }

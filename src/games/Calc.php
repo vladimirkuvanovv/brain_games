@@ -9,13 +9,12 @@ const MAIN_QUESTION_FOR_CALC = 'What is the result of the expression?';
 function getCalculation()
 {
     return [
-        'mainQuestion' => MAIN_QUESTION_FOR_CALC,
          'play' => function () {
             $firstNumber = (int)rand(0, 20);
             $secondNumber = (int)rand(0, 20);
-            $arrayOperations = ['+', '-', '*'];
-            $randKey = array_rand($arrayOperations);
-            $operation = $arrayOperations[$randKey];
+            $operations = ['+', '-', '*'];
+            $randKey = array_rand($operations);
+            $operation = $operations[$randKey];
 
             switch ($operation) {
                 case '+':
@@ -33,8 +32,8 @@ function getCalculation()
             }
 
             return [
-                'resultAnswer' => $result,
-                'questionInGame' => "Question : " . "{$firstNumber} {$operation} {$secondNumber}"
+                'resultAnswer'   => $result,
+                'questionInGame' => "{$firstNumber} {$operation} {$secondNumber}"
             ];
          }
     ];
@@ -42,6 +41,6 @@ function getCalculation()
 
 function runCalculationGame()
 {
-    ['mainQuestion' => $mainQuestion, 'play' => $play] = getCalculation();
-    runEngine($mainQuestion, $play);
+    ['play' => $play] = getCalculation();
+    runEngine(MAIN_QUESTION_FOR_CALC, $play);
 }

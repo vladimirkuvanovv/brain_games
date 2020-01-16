@@ -33,7 +33,6 @@ function isPrime($number)
 function getPrimeNumber()
 {
     return [
-        'mainQuestion' => MAIN_QUESTION_FOR_PRIME,
         'play' => function () {
             $number = rand(0, 50);
             $isPrimeNumber = isPrime($number);
@@ -44,8 +43,8 @@ function getPrimeNumber()
                 $answer = 'no';
             }
             return [
-                'resultAnswer' => $answer,
-                'questionInGame' => 'Question:' . $number,
+                'resultAnswer'   => $answer,
+                'questionInGame' =>  $number,
             ];
         },
     ];
@@ -53,6 +52,6 @@ function getPrimeNumber()
 
 function runPrimeGame()
 {
-    ['mainQuestion' => $mainQuestion, 'play' => $play] = getPrimeNumber();
-    runEngine($mainQuestion, $play);
+    ['play' => $play] = getPrimeNumber();
+    runEngine(MAIN_QUESTION_FOR_PRIME, $play);
 }

@@ -22,7 +22,7 @@
         "phpcs": "phpcs"
     },
     "autoload": {
-        "psr-4": {
+        "psr-0": {
             "BrainGames\\": "src",
             "BrainGames\\Cli\\": "src",
             "BrainGames\\Games\\": "src"

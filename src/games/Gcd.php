@@ -18,14 +18,13 @@ function getGCD($firstNumber, $secondNumber)
 function getGreatCommonDivisor()
 {
     return [
-        'mainQuestion' => MAIN_QUESTION_FOR_GCD,
         'play' => function () {
             $firstNumber = rand(0, 20);
             $secondNumber = rand(0, 20);
             $resultNumber = getGCD($firstNumber, $secondNumber);
             return [
-                'resultAnswer' => $resultNumber,
-                'questionInGame' => "Question : " . $firstNumber . ' and ' . $secondNumber,
+                'resultAnswer'   => $resultNumber,
+                'questionInGame' => $firstNumber . ' and ' . $secondNumber,
             ];
         },
     ];
@@ -33,6 +32,6 @@ function getGreatCommonDivisor()
 
 function runGcdGame()
 {
-    ['mainQuestion' => $mainQuestion, 'play' => $play] = getGreatCommonDivisor();
-    runEngine($mainQuestion, $play);
+    ['play' => $play] = getGreatCommonDivisor();
+    runEngine(MAIN_QUESTION_FOR_GCD, $play);
 }

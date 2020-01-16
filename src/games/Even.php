@@ -8,27 +8,28 @@ const MAIN_QUESTION_FOR_EVEN = 'Answer "yes" if the number is even, otherwise an
 
 function isEven($number)
 {
-
     if ($number % 2 === 0) {
-        $answer = 'yes';
+        return true;
     } else {
-        $answer = 'no';
+        return false;
     }
-
-    return $answer;
 }
 
 function getEvenNumber()
 {
     return [
-        'mainQuestion' => MAIN_QUESTION_FOR_EVEN,
         'play' => function () {
 
             $number = rand(0, 100);
-            $answer = isEven($number);
+            if (isEven($number)) {
+                $answer = 'yes';
+            } else {
+                $answer = 'no';
+            }
+            
             return [
-                'resultAnswer' => $answer,
-                'questionInGame' => 'Question:' . $number
+                'resultAnswer'   => $answer,
+                'questionInGame' => $number
             ];
         },
     ];
@@ -36,6 +37,6 @@ function getEvenNumber()
 
 function runEvenGame()
 {
-    ['mainQuestion' => $mainQuestion, 'play' => $play] = getEvenNumber();
-    runEngine($mainQuestion, $play);
+    ['play' => $play] = getEvenNumber();
+    runEngine(MAIN_QUESTION_FOR_EVEN, $play);
 }

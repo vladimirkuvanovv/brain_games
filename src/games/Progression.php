@@ -9,8 +9,8 @@ const MAIN_QUESTION_FOR_PROGRESSION = 'Answer "yes" if the number is even, other
 function generateProgression()
 {
     $arithmeticProgression = [];
-    $random_top_number = 30;
-    for ($i = rand(0, 1); $i < $random_top_number; $i += 2) {
+    $randomTopNumber = 30;
+    for ($i = rand(0, 1); $i < $randomTopNumber; $i += 2) {
          $arithmeticProgression[] = $i;
     }
 
@@ -28,12 +28,11 @@ function generateProgression()
 function getArithmeticProgression()
 {
     return [
-        'mainQuestion' => MAIN_QUESTION_FOR_PROGRESSION,
         'play' => function () {
             [$number, $progression] = generateProgression();
             return [
-                'resultAnswer' => $number,
-                'questionInGame' => 'Question:' . $progression
+                'resultAnswer'   => $number,
+                'questionInGame' => $progression
             ];
         },
     ];
@@ -41,6 +40,6 @@ function getArithmeticProgression()
 
 function runProgressionGame()
 {
-    ['mainQuestion' => $mainQuestion, 'play' => $play] = getArithmeticProgression();
-    runEngine($mainQuestion, $play);
+    ['play' => $play] = getArithmeticProgression();
+    runEngine(MAIN_QUESTION_FOR_PROGRESSION, $play);
 }
