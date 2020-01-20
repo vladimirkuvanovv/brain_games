@@ -36,7 +36,6 @@
             "src/games/Prime.php",
             "src/lib/functions.php",
             "src/engine.php"
-
         ]
     },
     "require": {
