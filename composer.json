@@ -34,7 +34,6 @@
             "src/games/Gcd.php",
             "src/games/Progression.php",
             "src/games/Prime.php",
-            "src/lib/functions.php",
             "src/engine.php"
         ]
     },
