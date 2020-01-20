@@ -16,7 +16,7 @@ function runEngine($mainQuestion, $play)
 
     for ($i = 0; $i < COUNT_ITERATIONS; $i++) {
         ['resultAnswer' => $resultAnswer, 'questionInGame' => $questionInGame] = $play();
-        line('Question '. $questionInGame);
+        line('Question ' . $questionInGame);
         $answer = prompt('Your answer');
         
         if ($answer == $resultAnswer) {
