@@ -16,7 +16,6 @@ function runEngine($mainQuestion, $play)
     $name = prompt('May I have your name?');
     line('Hello, %s!', $name);
 
-    $countRightAnswer = 0;
     for ($i = 0; $i < COUNT_ITERATIONS; $i++) {
         ['resultAnswer' => $resultAnswer, 'questionInGame' => $questionInGame] = $play();
         line('Question '. $questionInGame);
@@ -24,16 +23,13 @@ function runEngine($mainQuestion, $play)
         
         if ($answer == $resultAnswer) {
             line('Correct!');
-
-            ++$countRightAnswer;
-            if ($countRightAnswer === 3) {
-                line('Congratulations, ' . $name . '!');
-                break;
-            }
         } else {
             line($answer . " is wrong answer ;(. Correct answer was " . $resultAnswer);
             line("Let's try again, " . $name . "!");
             break;
         }
     }
+    
+    line('Congratulations, ' . $name . '!');
+    return;
 }
