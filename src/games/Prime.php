@@ -44,7 +44,7 @@ function getPrimeNumber()
             }
             return [
                 'resultAnswer'   => $answer,
-                'questionInGame' =>  $number,
+                'dataForGame' =>  $number,
             ];
         },
     ];

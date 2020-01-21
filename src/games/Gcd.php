@@ -24,7 +24,7 @@ function getGreatCommonDivisor()
             $resultNumber = getGCD($firstNumber, $secondNumber);
             return [
                 'resultAnswer'   => $resultNumber,
-                'questionInGame' => $firstNumber . ' and ' . $secondNumber,
+                'dataForGame' => $firstNumber . ' and ' . $secondNumber,
             ];
         },
     ];

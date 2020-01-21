@@ -14,25 +14,21 @@ function generateProgression()
          $arithmeticProgression[] = $i;
     }
 
-    $randomKey = array_rand($arithmeticProgression);
-    $number = $arithmeticProgression[$randomKey];
-    $arithmeticProgression[$randomKey] = '..';
-    $arithmeticProgression = implode(' ', $arithmeticProgression);
-
-    return [
-        $number,
-        $arithmeticProgression,
-    ];
+    return $arithmeticProgression;
 }
 
 function getArithmeticProgression()
 {
     return [
         'play' => function () {
-            [$number, $progression] = generateProgression();
+            $arithmeticProgression = generateProgression();
+            $randomKey = array_rand($arithmeticProgression);
+            $number = $arithmeticProgression[$randomKey];
+            $arithmeticProgression[$randomKey] = '..';
+            $arithmeticProgression = implode(' ', $arithmeticProgression);
             return [
-                'resultAnswer'   => $number,
-                'questionInGame' => $progression
+                'resultAnswer' => $number,
+                'dataForGame'  => $arithmeticProgression
             ];
         },
     ];

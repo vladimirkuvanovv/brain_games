@@ -29,7 +29,7 @@ function getEvenNumber()
             
             return [
                 'resultAnswer'   => $answer,
-                'questionInGame' => $number
+                'dataForGame' => $number
             ];
         },
     ];

@@ -33,7 +33,7 @@ function getCalculation()
 
             return [
                 'resultAnswer'   => $result,
-                'questionInGame' => "{$firstNumber} {$operation} {$secondNumber}"
+                'dataForGame' => "{$firstNumber} {$operation} {$secondNumber}"
             ];
          }
     ];
