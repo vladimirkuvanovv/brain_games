@@ -22,11 +22,6 @@
         "phpcs": "phpcs"
     },
     "autoload": {
-        "psr-0": {
-            "BrainGames\\": "src",
-            "BrainGames\\Cli\\": "src",
-            "BrainGames\\Games\\": "src"
-        },
         "files": [
             "src/Cli.php",
             "src/games/Even.php",
