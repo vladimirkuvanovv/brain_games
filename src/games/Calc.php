@@ -4,7 +4,7 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
-const MAIN_QUESTION_FOR_CALC = 'What is the result of the expression?';
+const MAIN_QUESTION_FOR_CALC_GAME = 'What is the result of the expression?';
 
 function getCalculation()
 {
@@ -42,5 +42,5 @@ function getCalculation()
 function runCalculationGame()
 {
     ['play' => $play] = getCalculation();
-    runEngine(MAIN_QUESTION_FOR_CALC, $play);
+    runEngine(MAIN_QUESTION_FOR_CALC_GAME, $play);
 }
