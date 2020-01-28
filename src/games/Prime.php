@@ -4,8 +4,6 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
-const MAIN_QUESTION_FOR_PRIME_GAME = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
 function isPrime($number)
 {
     if ($number < 2) {
@@ -30,28 +28,20 @@ function isPrime($number)
     return true;
 }
 
-function getPrimeNumber()
-{
-    return [
-        'play' => function () {
-            $number = rand(0, 50);
-            $isPrimeNumber = isPrime($number);
-
-            if ($isPrimeNumber) {
-                $answer = 'yes';
-            } else {
-                $answer = 'no';
-            }
-            return [
-                'resultAnswer'   => $answer,
-                'dataForGame' =>  $number,
-            ];
-        },
-    ];
-}
-
 function runPrimeGame()
 {
-    ['play' => $play] = getPrimeNumber();
-    runEngine(MAIN_QUESTION_FOR_PRIME, $play);
+    $mainQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+    $randomTopNumber = 50;
+    
+    $getPrimeGamePlay = function () use ($randomTopNumber) {
+        $number = rand(0, $randomTopNumber);
+        $answer = isPrime($number) ? 'yes' : 'no';
+        
+        return [
+            'resultAnswer' => $answer,
+            'dataForGame'  => $number
+        ];
+    };
+    
+    runEngine($mainQuestion, $getPrimeGamePlay);
 }

@@ -5,7 +5,7 @@ namespace BrainGames;
 use function cli\line;
 use function cli\prompt;
 
-const COUNT_ITERATIONS = 3;
+const ITERATIONS_COUNT = 3;
 
 function runEngine($mainQuestion, $play)
 {
@@ -14,7 +14,7 @@ function runEngine($mainQuestion, $play)
     $name = prompt('May I have your name?');
     line('Hello, %s!', $name);
 
-    for ($i = 0; $i < COUNT_ITERATIONS; $i++) {
+    for ($i = 0; $i < ITERATIONS_COUNT; $i++) {
         ['resultAnswer' => $resultAnswer, 'dataForGame' => $dataForGame] = $play();
         line('Question ' . $dataForGame);
         $answer = prompt('Your answer');
@@ -24,7 +24,7 @@ function runEngine($mainQuestion, $play)
         } else {
             line($answer . " is wrong answer ;(. Correct answer was " . $resultAnswer);
             line("Let's try again, " . $name . "!");
-            break;
+            return;
         }
     }
     
