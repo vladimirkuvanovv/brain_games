@@ -19,17 +19,15 @@ function generateProgression()
 
 function runProgressionGame()
 {
-    $getProgressionGamePlay = function () {
+    $getRightAnswerForRound = function (&$roundQuestion) {
         $arithmeticProgression = generateProgression();
-        $randomKey = array_rand($arithmeticProgression);
-        $number = $arithmeticProgression[$randomKey];
-        $arithmeticProgression[$randomKey] = '..';
-        $arithmeticProgression = implode(' ', $arithmeticProgression);
-        return [
-            'resultAnswer' => $number,
-            'dataForGame'  => $arithmeticProgression
-        ];
+        $skippedKey = array_rand($arithmeticProgression);
+        $rightAnswer = $arithmeticProgression[$skippedKey];
+        $arithmeticProgression[$skippedKey] = '..';
+        $roundQuestion .= implode(' ', $arithmeticProgression);
+        
+        return $rightAnswer;
     };
-    $mainQuestion = 'What number is missing in the progression?';
-    runEngine($mainQuestion, $getProgressionGamePlay);
+    
+    runEngine($getRightAnswerForRound,'What number is missing in the progression?');
 }
