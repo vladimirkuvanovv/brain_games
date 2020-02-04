@@ -25,7 +25,7 @@ function runGcdGame()
     
         return [
             'resultAnswer'   => $resultNumber,
-            'dataForGame' => $firstNumber . ' and ' . $secondNumber,
+            'dataForGame' => "{$firstNumber} and {$secondNumber}",
         ];
     };
     runEngine($mainQuestion, $getGcdGamePlay);

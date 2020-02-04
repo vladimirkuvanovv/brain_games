@@ -5,7 +5,6 @@
     "keywords":    ["console", "cli", "games"],
     "license": "MIT",
     "bin" : [
-        "bin/brain-start-games",
         "bin/brain-calc",
         "bin/brain-even",
         "bin/brain-gcd",
