@@ -34,7 +34,7 @@ function runCalculationGame()
         $operations = ['+', '-', '*'];
         $randKey = array_rand($operations);
         $operation = $operations[$randKey];
-        $rightAnswer = generateComputedExpression($firstNumber, $secondNumber,  $operation);
+        $rightAnswer = generateComputedExpression($firstNumber, $secondNumber, $operation);
     
         $roundQuestion .= "{$firstNumber} {$operation} {$secondNumber}";
         

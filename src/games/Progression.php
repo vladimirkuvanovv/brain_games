@@ -29,5 +29,5 @@ function runProgressionGame()
         return $rightAnswer;
     };
     
-    runEngine($getRightAnswerForRound,'What number is missing in the progression?');
+    runEngine($getRightAnswerForRound, 'What number is missing in the progression?');
 }
