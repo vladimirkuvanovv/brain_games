@@ -15,18 +15,17 @@ function getGCD($firstNumber, $secondNumber)
 
 function runGcdGame()
 {
-    $mainQuestion = 'Find the greatest common divisor of given numbers.';
     $randomTopNumber = 20;
     
-    $getGcdGamePlay = function () use ($randomTopNumber) {
+    $getRightAnswerForRound = function (&$roundQuestion) use ($randomTopNumber) {
         $firstNumber = (int)rand(0, $randomTopNumber);
         $secondNumber = (int)rand(0, $randomTopNumber);
-        $resultNumber = getGCD($firstNumber, $secondNumber);
+        $rightAnswer = getGCD($firstNumber, $secondNumber);
     
-        return [
-            'resultAnswer'   => $resultNumber,
-            'dataForGame' => "{$firstNumber} and {$secondNumber}",
-        ];
+        $roundQuestion .= "{$firstNumber} and {$secondNumber}";
+        
+        return $rightAnswer;
     };
-    runEngine($mainQuestion, $getGcdGamePlay);
+    
+    runEngine($getRightAnswerForRound, 'Find the greatest common divisor of given numbers.');
 }

@@ -19,12 +19,12 @@ function runEngine($getRightAnswerForRound, $question)
         $rightAnswer = $getRightAnswerForRound($roundQuestion);
         
         line($roundQuestion);
-        $answer = prompt('Your answer');
+        $answerUser = prompt('Your answer');
         
-        if ($answer == $rightAnswer) {
+        if ($answerUser == $rightAnswer) {
             line('Correct!');
         } else {
-            line("{$answer}  is wrong answer ;(. Correct answer was {$rightAnswer}");
+            line("{$answerUser}  is wrong answer ;(. Correct answer was {$rightAnswer}");
             line("Let's try again, {$name}!");
             return;
         }

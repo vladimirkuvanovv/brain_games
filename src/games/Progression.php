@@ -4,12 +4,9 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
-function generateProgression()
+function generateProgression($randomFirstNumber, $randomTopNumber, $randomStepProgression)
 {
     $arithmeticProgression = [];
-    $randomTopNumber = 50;
-    $randomFirstNumber = rand(0, 10);
-    $randomStepProgression = rand(0, 5);
     for ($i = $randomFirstNumber; $i < $randomTopNumber; $i += $randomStepProgression) {
          $arithmeticProgression[] = $i;
     }
@@ -20,7 +17,10 @@ function generateProgression()
 function runProgressionGame()
 {
     $getRightAnswerForRound = function (&$roundQuestion) {
-        $arithmeticProgression = generateProgression();
+        $randomTopNumber = 50;
+        $randomFirstNumber = rand(0, 10);
+        $randomStepProgression = rand(0, 5);
+        $arithmeticProgression = generateProgression($randomFirstNumber, $randomTopNumber, $randomStepProgression);
         $skippedKey = array_rand($arithmeticProgression);
         $rightAnswer = $arithmeticProgression[$skippedKey];
         $arithmeticProgression[$skippedKey] = '..';
