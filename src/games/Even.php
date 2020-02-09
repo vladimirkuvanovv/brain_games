@@ -4,24 +4,21 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
+function isEven($number)
+{
+    return $number % 2 === 0;
+}
 function runEvenGame()
 {
-    $mainQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
     $randomTopNumber = 100;
     
-    $isEven = function ($number) {
-        return $number % 2 === 0;
-    };
-    
-    $getEvenNumberGamePlay = function () use ($isEven, $randomTopNumber) {
+    $getRightAnswerForRound = function (&$roundQuestion) use ($randomTopNumber) {
         $number = rand(0, $randomTopNumber);
-        $answer = $isEven($number) ? 'yes' : 'no';
-    
-        return [
-            'resultAnswer' => $answer,
-            'dataForGame'  => $number
-        ];
+        $rightAnswer = isEven($number) ? 'yes' : 'no';
+        $roundQuestion .= $number;
+        
+        return $rightAnswer;
     };
     
-    runEngine($mainQuestion, $getEvenNumberGamePlay);
+    runEngine($getRightAnswerForRound, 'Answer "yes" if the number is even, otherwise answer "no".');
 }

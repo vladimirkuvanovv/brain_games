@@ -30,18 +30,15 @@ function isPrime($number)
 
 function runPrimeGame()
 {
-    $mainQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $randomTopNumber = 50;
     
-    $getPrimeGamePlay = function () use ($randomTopNumber) {
+    $getRightAnswerForRound = function (&$roundQuestion) use ($randomTopNumber) {
         $number = rand(0, $randomTopNumber);
-        $answer = isPrime($number) ? 'yes' : 'no';
+        $rightAnswer = isPrime($number) ? 'yes' : 'no';
+        $roundQuestion .= $number;
         
-        return [
-            'resultAnswer' => $answer,
-            'dataForGame'  => $number
-        ];
+        return $rightAnswer;
     };
     
-    runEngine($mainQuestion, $getPrimeGamePlay);
+    runEngine($getRightAnswerForRound, 'Answer "yes" if given number is prime. Otherwise answer "no".');
 }

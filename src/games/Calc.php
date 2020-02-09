@@ -4,38 +4,42 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
+function generateComputedExpression($firstNumber, $secondNumber, $operation)
+{
+    switch ($operation) {
+        case '+':
+            $result = $firstNumber + $secondNumber;
+            break;
+        case '-':
+            $result = $firstNumber - $secondNumber;
+            break;
+        case '*':
+            $result = $firstNumber * $secondNumber;
+            break;
+        default:
+            $result = null;
+            break;
+    }
+    
+    return $result;
+}
+
 function runCalculationGame()
 {
-    $mainQuestion = 'What is the result of the expression?';
     $randomTopNumber = 20;
     
-    $getCalculationGamePlay = function () use ($randomTopNumber) {
+    $getRightAnswerForRound = function (&$roundQuestion) use ($randomTopNumber) {
         $firstNumber = (int)rand(0, $randomTopNumber);
         $secondNumber = (int)rand(0, $randomTopNumber);
         $operations = ['+', '-', '*'];
         $randKey = array_rand($operations);
         $operation = $operations[$randKey];
+        $rightAnswer = generateComputedExpression($firstNumber, $secondNumber, $operation);
     
-        switch ($operation) {
-            case '+':
-                $result = $firstNumber + $secondNumber;
-                break;
-            case '-':
-                $result = $firstNumber - $secondNumber;
-                break;
-            case '*':
-                $result = $firstNumber * $secondNumber;
-                break;
-            default:
-                $result = null;
-                break;
-        }
-    
-        return [
-            'resultAnswer'   => $result,
-            'dataForGame' => "{$firstNumber} {$operation} {$secondNumber}"
-        ];
+        $roundQuestion .= "{$firstNumber} {$operation} {$secondNumber}";
+        
+        return $rightAnswer;
     };
     
-    runEngine($mainQuestion, $getCalculationGamePlay);
+    runEngine($getRightAnswerForRound, 'What is the result of the expression?');
 }
