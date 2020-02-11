@@ -4,6 +4,8 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
+const RANDOM_TOP_NUMBER_FOR_PROGRESSION_GAME = 50;
+
 function generateProgression($randomFirstNumber, $randomTopNumber, $randomStepProgression)
 {
     $arithmeticProgression = [];
@@ -16,17 +18,16 @@ function generateProgression($randomFirstNumber, $randomTopNumber, $randomStepPr
 
 function runProgressionGame()
 {
-    $getRightAnswerForRound = function (&$roundQuestion) {
-        $randomTopNumber = 50;
+    $getRightAnswerForRound = function () {
         $randomFirstNumber = rand(0, 10);
         $randomStepProgression = rand(0, 5);
-        $arithmeticProgression = generateProgression($randomFirstNumber, $randomTopNumber, $randomStepProgression);
+        $arithmeticProgression = generateProgression($randomFirstNumber, RANDOM_TOP_NUMBER_FOR_PROGRESSION_GAME, $randomStepProgression);
         $skippedKey = array_rand($arithmeticProgression);
         $rightAnswer = $arithmeticProgression[$skippedKey];
         $arithmeticProgression[$skippedKey] = '..';
-        $roundQuestion .= implode(' ', $arithmeticProgression);
-        
-        return $rightAnswer;
+        $roundQuestion = "Question: " . implode(' ', $arithmeticProgression);
+    
+        return ['roundQuestion' => $roundQuestion, 'rightAnswer' => $rightAnswer];
     };
     
     runEngine($getRightAnswerForRound, 'What number is missing in the progression?');

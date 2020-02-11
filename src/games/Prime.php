@@ -4,6 +4,8 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
+const RANDOM_TOP_NUMBER_FOR_PRIME_GAME = 100;
+
 function isPrime($number)
 {
     if ($number < 2) {
@@ -30,14 +32,12 @@ function isPrime($number)
 
 function runPrimeGame()
 {
-    $randomTopNumber = 50;
-    
-    $getRightAnswerForRound = function (&$roundQuestion) use ($randomTopNumber) {
-        $number = rand(0, $randomTopNumber);
+    $getRightAnswerForRound = function () {
+        $number = rand(0, RANDOM_TOP_NUMBER_FOR_PRIME_GAME);
         $rightAnswer = isPrime($number) ? 'yes' : 'no';
-        $roundQuestion .= $number;
-        
-        return $rightAnswer;
+        $roundQuestion = "Question: {$number}";
+    
+        return ['roundQuestion' => $roundQuestion, 'rightAnswer' => $rightAnswer];
     };
     
     runEngine($getRightAnswerForRound, 'Answer "yes" if given number is prime. Otherwise answer "no".');

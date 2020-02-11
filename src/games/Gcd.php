@@ -4,6 +4,8 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
+const RANDOM_TOP_NUMBER_FOR_GCD_GAME = 100;
+
 function getGCD($firstNumber, $secondNumber)
 {
     if ($secondNumber > 0) {
@@ -15,16 +17,13 @@ function getGCD($firstNumber, $secondNumber)
 
 function runGcdGame()
 {
-    $randomTopNumber = 20;
-    
-    $getRightAnswerForRound = function (&$roundQuestion) use ($randomTopNumber) {
-        $firstNumber = (int)rand(0, $randomTopNumber);
-        $secondNumber = (int)rand(0, $randomTopNumber);
+    $getRightAnswerForRound = function () {
+        $firstNumber = (int)rand(0, RANDOM_TOP_NUMBER_FOR_GCD_GAME);
+        $secondNumber = (int)rand(0, RANDOM_TOP_NUMBER_FOR_GCD_GAME);
         $rightAnswer = getGCD($firstNumber, $secondNumber);
+        $roundQuestion = "Question: {$firstNumber} and {$secondNumber}";
     
-        $roundQuestion .= "{$firstNumber} and {$secondNumber}";
-        
-        return $rightAnswer;
+        return ['roundQuestion' => $roundQuestion, 'rightAnswer' => $rightAnswer];
     };
     
     runEngine($getRightAnswerForRound, 'Find the greatest common divisor of given numbers.');

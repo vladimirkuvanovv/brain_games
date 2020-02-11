@@ -15,8 +15,7 @@ function runEngine($getRightAnswerForRound, $question)
     line('Hello, %s!', $name);
 
     for ($i = 0; $i < ITERATIONS_COUNT; $i++) {
-        $roundQuestion = 'Question ';
-        $rightAnswer = $getRightAnswerForRound($roundQuestion);
+        ['roundQuestion' => $roundQuestion, 'rightAnswer' => $rightAnswer] = $getRightAnswerForRound();
         
         line($roundQuestion);
         $answerUser = prompt('Your answer');
