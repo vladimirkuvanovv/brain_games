@@ -2,7 +2,7 @@
     "name": "brgames/games",
     "type": "library",
     "description": "console games",
-    "keywords":    ["console", "cli", "games"],
+    "keywords":    ["console", "games"],
     "license": "MIT",
     "bin" : [
         "bin/brain-calc",
@@ -22,7 +22,6 @@
     },
     "autoload": {
         "files": [
-            "src/Cli.php",
             "src/games/Even.php",
             "src/games/Calc.php",
             "src/games/Gcd.php",
