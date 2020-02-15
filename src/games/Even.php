@@ -4,8 +4,6 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
-const RANDOM_TOP_NUMBER_FOR_EVEN_GAME = 100;
-
 function isEven($number)
 {
     return $number % 2 === 0;
@@ -13,7 +11,8 @@ function isEven($number)
 function runEvenGame()
 {
     $getRightAnswerForRound = function () {
-        $number = rand(0, RANDOM_TOP_NUMBER_FOR_EVEN_GAME);
+        $randomTopNumber = 100;
+        $number = rand(0, $randomTopNumber);
         $rightAnswer = isEven($number) ? 'yes' : 'no';
         $roundQuestion = "Question: {$number}";
     

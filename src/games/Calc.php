@@ -4,8 +4,6 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
-const RANDOM_TOP_NUMBER_FOR_CALC_GAME = 20;
-
 function generateComputedExpression($firstNumber, $secondNumber, $operation)
 {
     switch ($operation) {
@@ -28,10 +26,10 @@ function generateComputedExpression($firstNumber, $secondNumber, $operation)
 
 function runCalculationGame()
 {
-    
     $getRightAnswerForRound = function () {
-        $firstNumber = (int)rand(0, RANDOM_TOP_NUMBER_FOR_CALC_GAME);
-        $secondNumber = (int)rand(0, RANDOM_TOP_NUMBER_FOR_CALC_GAME);
+        $randomTopNumber = 20;
+        $firstNumber = (int)rand(0, $randomTopNumber);
+        $secondNumber = (int)rand(0, $randomTopNumber);
         $operations = ['+', '-', '*'];
         $randKey = array_rand($operations);
         $operation = $operations[$randKey];

@@ -4,15 +4,13 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
-const RANDOM_TOP_NUMBER_FOR_PRIME_GAME = 100;
-
 function isPrime($number)
 {
     if ($number < 2) {
         return false;
     }
     if ($number == 2) {
-        return $number;
+        return true;
     }
     if ($number % 2 == 0) {
         return false;
@@ -33,7 +31,8 @@ function isPrime($number)
 function runPrimeGame()
 {
     $getRightAnswerForRound = function () {
-        $number = rand(0, RANDOM_TOP_NUMBER_FOR_PRIME_GAME);
+        $randomTopNumber = 100;
+        $number = rand(0, $randomTopNumber);
         $rightAnswer = isPrime($number) ? 'yes' : 'no';
         $roundQuestion = "Question: {$number}";
     

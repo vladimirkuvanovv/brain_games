@@ -4,8 +4,6 @@ namespace BrainGames\Games;
 
 use function BrainGames\runEngine;
 
-const RANDOM_TOP_NUMBER_FOR_GCD_GAME = 100;
-
 function getGCD($firstNumber, $secondNumber)
 {
     if ($secondNumber > 0) {
@@ -18,8 +16,9 @@ function getGCD($firstNumber, $secondNumber)
 function runGcdGame()
 {
     $getRightAnswerForRound = function () {
-        $firstNumber = (int)rand(0, RANDOM_TOP_NUMBER_FOR_GCD_GAME);
-        $secondNumber = (int)rand(0, RANDOM_TOP_NUMBER_FOR_GCD_GAME);
+        $randomTopNumber = 100;
+        $firstNumber = (int)rand(0, $randomTopNumber);
+        $secondNumber = (int)rand(0, $randomTopNumber);
         $rightAnswer = getGCD($firstNumber, $secondNumber);
         $roundQuestion = "Question: {$firstNumber} and {$secondNumber}";
     
