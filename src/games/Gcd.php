@@ -9,7 +9,7 @@ function getGCD($firstNumber, $secondNumber)
     if ($secondNumber > 0) {
         return getGCD($secondNumber, $firstNumber % $secondNumber);
     } else {
-        return (int)abs($firstNumber);
+        return abs($firstNumber);
     }
 }
 
