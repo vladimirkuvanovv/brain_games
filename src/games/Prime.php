@@ -34,7 +34,7 @@ function runPrimeGame()
         $randomTopNumber = 100;
         $number = rand(0, $randomTopNumber);
         $rightAnswer = isPrime($number) ? 'yes' : 'no';
-        $roundQuestion = "Question: {$number}";
+        $roundQuestion = $number;
     
         return ['roundQuestion' => $roundQuestion, 'rightAnswer' => $rightAnswer];
     };

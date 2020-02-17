@@ -24,7 +24,7 @@ function runProgressionGame()
         $skippedKey = array_rand($arithmeticProgression);
         $rightAnswer = $arithmeticProgression[$skippedKey];
         $arithmeticProgression[$skippedKey] = '..';
-        $roundQuestion = "Question: " . implode(' ', $arithmeticProgression);
+        $roundQuestion = implode(' ', $arithmeticProgression);
     
         return ['roundQuestion' => $roundQuestion, 'rightAnswer' => $rightAnswer];
     };

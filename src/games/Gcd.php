@@ -20,7 +20,7 @@ function runGcdGame()
         $firstNumber = (int)rand(0, $randomTopNumber);
         $secondNumber = (int)rand(0, $randomTopNumber);
         $rightAnswer = getGCD($firstNumber, $secondNumber);
-        $roundQuestion = "Question: {$firstNumber} and {$secondNumber}";
+        $roundQuestion = "{$firstNumber} and {$secondNumber}";
     
         return ['roundQuestion' => $roundQuestion, 'rightAnswer' => $rightAnswer];
     };

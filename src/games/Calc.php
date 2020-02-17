@@ -17,7 +17,7 @@ function generateComputedExpression($firstNumber, $secondNumber, $operation)
             $result = $firstNumber * $secondNumber;
             break;
         default:
-            $result = null;
+            return null;
             break;
     }
     
@@ -35,7 +35,7 @@ function runCalculationGame()
         $operation = $operations[$randKey];
         $rightAnswer = generateComputedExpression($firstNumber, $secondNumber, $operation);
     
-        $roundQuestion = "Question: {$firstNumber} {$operation} {$secondNumber}";
+        $roundQuestion = "{$firstNumber} {$operation} {$secondNumber}";
         
         return ['roundQuestion' => $roundQuestion, 'rightAnswer' => $rightAnswer];
     };
